@@ -374,24 +374,53 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
                                                            'xtol': xtol})
 
     if not np.isclose(sol.fun,0,atol,rtol).all():
+        try:
+            h0 = np.array([1 + np.dot(unormals[i],c)
+                           for i in filter(lambda x: x not in gen, range(n))])
+            d = float(open('D.txt', 'r').read())
+            print(d)
+            h0 = d*h0
+            sol = __root(area, h0, method='lm', jac=True, options={'col_deriv': 1,
+                                                                    'ftol': ftol,
+                                                                    'xtol': xtol})
+            print(sol.fun)
+        except:
+            None
 
-        D = float(open('D.txt', 'r').read())
-        d = D
-        h0 = d*h0
-        sol = __root(area, h0, method='lm', jac=True, options={'col_deriv': 1,
-                                                               'ftol': ftol,
-                                                               'xtol': xtol})
         if not np.isclose(sol.fun,0,atol,rtol).all():
 ####
-            D = np.arange(0,1000,1/100)
-            for elem in D:
-                d = elem
+            D = np.arange(0,10,1/1000)
+            for d in D:
+                h0 = np.array([1 + np.dot(unormals[i],c)
+                                for i in filter(lambda x: x not in gen, range(n))])
+                print(d)
                 h0 = d*h0
                 sol = __root(area, h0, method='lm', jac=True, options={'col_deriv': 1,
                                                                         'ftol': ftol,
                                                                         'xtol': xtol})
+                print(sol.fun)
+
                 if np.isclose(sol.fun,0,atol,rtol).all():
                     break
+
+            if not np.isclose(sol.fun,0,atol,rtol).all():
+                try:
+                    refD = float(open('D.txt', 'r').read())
+                    D = np.arange(0.9*refD, 1.1*refD, 1/1000000)
+                    for d in D:
+                        h0 = np.array([1 + np.dot(unormals[i],c)
+                                        for i in filter(lambda x: x not in gen, range(n))])
+                        h0 = d*h0
+                        sol = __root(area, h0, method='lm', jac=True, options={'col_deriv': 1,
+                                                                                'ftol': ftol,
+                                                                                'xtol': xtol})
+                except:
+                    None
+
+                if not np.isclose(sol.fun,0,atol,rtol).all():
+                    raise ReconstructError('\
+                        The algorithm was not able to reconstruct the polyhedron with \
+                        any of the Ds considered.')
 ####
 
     np.savetxt("/Users/enekoaranguren/Documents/lqg/D.txt", [d])
@@ -422,10 +451,11 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
     H = np.insert(sol.x,[gen[0],gen[1]-1,gen[2]-2],0)
 
     face_ad_matrix = (L>0).astype(int)
-
     num_edges = int(sum(sum(face_ad_matrix))/2)
-    num_vertices = num_edges - n + 2
+    num_vertices = num_edges - n + 2 # Euler characteristic
+
     vert_ad_matrix = np.zeros([num_vertices,num_vertices],dtype=int)
+
 
     faces = [[] for i in range(n)]
 
