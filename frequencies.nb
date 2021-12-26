@@ -1,0 +1,255 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7700,        245]
+NotebookOptionsPosition[      7188,        228]
+NotebookOutlinePosition[      7524,        243]
+CellTagsIndexPosition[      7481,        240]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"DSolve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"u", "''"}], "[", "t", "]"}], "\[Equal]", 
+    RowBox[{
+     RowBox[{"A", "*", 
+      RowBox[{"u", "[", "t", "]"}]}], "-", 
+     RowBox[{"B", "*", 
+      RowBox[{
+       RowBox[{"u", "[", "t", "]"}], "^", "3"}]}]}]}], ",", "u", ",", "t"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.846646166666697*^9, 3.846646203329342*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"2ed8d19d-c6e7-4073-9196-97f3b3c7fd3d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ifun",
+   "\"Inverse functions are being used by \
+\\!\\(\\*RowBox[{\\\"Solve\\\"}]\\), so some solutions may not be found; use \
+Reduce for complete solution information.\"",2,2,1,19253814489981837891,
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8466462044350357`*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"e3bf7ff7-da11-4093-abe8-c1f0e268aef4"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"u", "\[Rule]", 
+     RowBox[{"Function", "[", 
+      RowBox[{
+       RowBox[{"{", "t", "}"}], ",", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["1", 
+          RowBox[{"A", "-", 
+           SqrtBox[
+            RowBox[{
+             SuperscriptBox["A", "2"], "+", 
+             RowBox[{"2", " ", "B", " ", 
+              TemplateBox[{"1"},
+               "C"]}]}]]}]]}], "2", " ", "\[ImaginaryI]", " ", 
+        TemplateBox[{"1"},
+         "C"], " ", 
+        SqrtBox[
+         RowBox[{"-", 
+          FractionBox["B", 
+           RowBox[{"A", "+", 
+            SqrtBox[
+             RowBox[{
+              SuperscriptBox["A", "2"], "+", 
+              RowBox[{"2", " ", "B", " ", 
+               TemplateBox[{"1"},
+                "C"]}]}]]}]]}]], " ", 
+        RowBox[{"JacobiSN", "[", 
+         RowBox[{
+          FractionBox[
+           SqrtBox[
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "A"}], " ", 
+              SuperscriptBox["t", "2"]}], "+", 
+             RowBox[{
+              SuperscriptBox["t", "2"], " ", 
+              SqrtBox[
+               RowBox[{
+                SuperscriptBox["A", "2"], "+", 
+                RowBox[{"2", " ", "B", " ", 
+                 TemplateBox[{"1"},
+                  "C"]}]}]]}], "-", 
+             RowBox[{"2", " ", "A", " ", "t", " ", 
+              TemplateBox[{"2"},
+               "C"]}], "+", 
+             RowBox[{"2", " ", "t", " ", 
+              SqrtBox[
+               RowBox[{
+                SuperscriptBox["A", "2"], "+", 
+                RowBox[{"2", " ", "B", " ", 
+                 TemplateBox[{"1"},
+                  "C"]}]}]], " ", 
+              TemplateBox[{"2"},
+               "C"]}], "-", 
+             RowBox[{"A", " ", 
+              SuperscriptBox[
+               TemplateBox[{"2"},
+                "C"], "2"]}], "+", 
+             RowBox[{
+              SqrtBox[
+               RowBox[{
+                SuperscriptBox["A", "2"], "+", 
+                RowBox[{"2", " ", "B", " ", 
+                 TemplateBox[{"1"},
+                  "C"]}]}]], " ", 
+              SuperscriptBox[
+               TemplateBox[{"2"},
+                "C"], "2"]}]}]], 
+           SqrtBox["2"]], ",", 
+          FractionBox[
+           RowBox[{"A", "+", 
+            SqrtBox[
+             RowBox[{
+              SuperscriptBox["A", "2"], "+", 
+              RowBox[{"2", " ", "B", " ", 
+               TemplateBox[{"1"},
+                "C"]}]}]]}], 
+           RowBox[{"A", "-", 
+            SqrtBox[
+             RowBox[{
+              SuperscriptBox["A", "2"], "+", 
+              RowBox[{"2", " ", "B", " ", 
+               TemplateBox[{"1"},
+                "C"]}]}]]}]]}], "]"}]}]}], "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"u", "\[Rule]", 
+     RowBox[{"Function", "[", 
+      RowBox[{
+       RowBox[{"{", "t", "}"}], ",", 
+       RowBox[{
+        FractionBox["1", 
+         RowBox[{"A", "-", 
+          SqrtBox[
+           RowBox[{
+            SuperscriptBox["A", "2"], "+", 
+            RowBox[{"2", " ", "B", " ", 
+             TemplateBox[{"1"},
+              "C"]}]}]]}]], "2", " ", "\[ImaginaryI]", " ", 
+        TemplateBox[{"1"},
+         "C"], " ", 
+        SqrtBox[
+         RowBox[{"-", 
+          FractionBox["B", 
+           RowBox[{"A", "+", 
+            SqrtBox[
+             RowBox[{
+              SuperscriptBox["A", "2"], "+", 
+              RowBox[{"2", " ", "B", " ", 
+               TemplateBox[{"1"},
+                "C"]}]}]]}]]}]], " ", 
+        RowBox[{"JacobiSN", "[", 
+         RowBox[{
+          FractionBox[
+           SqrtBox[
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "A"}], " ", 
+              SuperscriptBox["t", "2"]}], "+", 
+             RowBox[{
+              SuperscriptBox["t", "2"], " ", 
+              SqrtBox[
+               RowBox[{
+                SuperscriptBox["A", "2"], "+", 
+                RowBox[{"2", " ", "B", " ", 
+                 TemplateBox[{"1"},
+                  "C"]}]}]]}], "-", 
+             RowBox[{"2", " ", "A", " ", "t", " ", 
+              TemplateBox[{"2"},
+               "C"]}], "+", 
+             RowBox[{"2", " ", "t", " ", 
+              SqrtBox[
+               RowBox[{
+                SuperscriptBox["A", "2"], "+", 
+                RowBox[{"2", " ", "B", " ", 
+                 TemplateBox[{"1"},
+                  "C"]}]}]], " ", 
+              TemplateBox[{"2"},
+               "C"]}], "-", 
+             RowBox[{"A", " ", 
+              SuperscriptBox[
+               TemplateBox[{"2"},
+                "C"], "2"]}], "+", 
+             RowBox[{
+              SqrtBox[
+               RowBox[{
+                SuperscriptBox["A", "2"], "+", 
+                RowBox[{"2", " ", "B", " ", 
+                 TemplateBox[{"1"},
+                  "C"]}]}]], " ", 
+              SuperscriptBox[
+               TemplateBox[{"2"},
+                "C"], "2"]}]}]], 
+           SqrtBox["2"]], ",", 
+          FractionBox[
+           RowBox[{"A", "+", 
+            SqrtBox[
+             RowBox[{
+              SuperscriptBox["A", "2"], "+", 
+              RowBox[{"2", " ", "B", " ", 
+               TemplateBox[{"1"},
+                "C"]}]}]]}], 
+           RowBox[{"A", "-", 
+            SqrtBox[
+             RowBox[{
+              SuperscriptBox["A", "2"], "+", 
+              RowBox[{"2", " ", "B", " ", 
+               TemplateBox[{"1"},
+                "C"]}]}]]}]]}], "]"}]}]}], "]"}]}], "}"}]}], "}"}]], "Output",\
+
+ CellChangeTimes->{{3.8466461933025303`*^9, 3.846646204483121*^9}},
+ CellLabel->"Out[2]=",ExpressionUUID->"e4ebf27f-8ea6-4f5c-bde4-ccc7906b891b"]
+}, Open  ]]
+},
+WindowSize->{808, 835},
+WindowMargins->{{12, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 491, 14, 30, "Input",ExpressionUUID->"2ed8d19d-c6e7-4073-9196-97f3b3c7fd3d"],
+Cell[1074, 38, 444, 11, 42, "Message",ExpressionUUID->"e3bf7ff7-da11-4093-abe8-c1f0e268aef4"],
+Cell[1521, 51, 5651, 174, 416, "Output",ExpressionUUID->"e4ebf27f-8ea6-4f5c-bde4-ccc7906b891b"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

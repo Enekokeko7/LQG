@@ -69,14 +69,14 @@ class Polyhedron():
         self.inequalities = tuple(np.array([h] + list(-u))
                                   for h,u in zip(H,unormals))
         self.volume = sum(a*h for a,h in zip(areas,H))/3
-
+    
     def print_inequality(self,index):
         ineq = self.inequalities[index]
         spam = ' + '.join([str(a) + '*' + x
                            for a,x in zip(-ineq[1:],['x','y','z'])])
         spam += ' <= ' + str(ineq[0])
         print(spam)
-
+        
 
 class Face():
     def __init__(self,verticesIDs,unormal,area):
@@ -85,7 +85,7 @@ class Face():
         self.area = area
 
 
-def reconstruct(unormals,areas,D=None,options={}): #D=None
+def reconstruct(unormals,areas,D=None,options={}):
     """
     Reconstruct (up to translation) a polyhedron from its outward unit normals
     and face areas.
@@ -93,7 +93,7 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
     The unit normals must span 3D space, the areas must be positive and the
     closure constraint ``sum(areas[i]*unormals[i] for i in range(n)) == 0``
     must be satisfied, otherwise a ValueError exception is raised.
-
+    
     Inputs
     ------
     unormals : list
@@ -123,7 +123,7 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
         'ftol': 1.5e-08
             Relative error desired in theapproximate solution in the root
             finding algorithm.
-
+    
     Returns
     -------
     P : Polyhedron
@@ -133,8 +133,8 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
     ------
     ReconstructError
         If the root algorithm is unable to reconstruct the polyhedron.
-        In this case, specifying an explicit value for D may solve the problem.
-
+        In this case, specifying an explicit value for D may solve the problem. 
+    
     Notes
     -----
     The unit normals should be distinct; if they are not, duplicate vectors
@@ -144,21 +144,21 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
     Examples
     --------
     >>> import polyhedrec as pr
-
+    
     >>> unormals = [numpy.array([-0.17447189, -0.43229383, -0.88469294]),
                     numpy.array([ 0.60815785,  0.73855608,  0.29099648]),
                     numpy.array([-0.53342276, -0.44253185, -0.72085069]),
                     numpy.array([-0.29876108,  0.45137263,  0.84083563]),
                     numpy.array([-0.41552563, -0.69427644,  0.58763822])]
-
+    
     >>> areas = [7.049773119515445,
                  8.521720027005253,
                  1.9790800361257508,
                  2.5983018666756377,
                  5.1034298342172928]
-
+    
     >>> P = pr.reconstruct(unormals,areas)
-
+    
     >>> P.vertices
     (array([-0.,  0., -0.]),
      array([ 6.02548243, -5.56480979,  1.53087654]),
@@ -166,14 +166,14 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
      array([-0.44385591,  0.31140014,  0.13727997]),
      array([ 1.70842807, -2.31842303,  2.31374446]),
      array([-0.2875289 , -1.90977608,  1.3851845 ]))
-
-    >>>P.f_adjacency_matrix
+    
+    >>>P.f_adjacency_matrix 
     array([[0, 1, 1, 0, 1],
            [1, 0, 1, 1, 1],
            [1, 1, 0, 1, 1],
            [0, 1, 1, 0, 1],
            [1, 1, 1, 1, 0]])
-
+    
     >>> P.v_adjacency_matrix
     array([[0, 1, 1, 1, 0, 0],
            [1, 0, 1, 0, 1, 0],
@@ -181,63 +181,63 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
            [1, 0, 0, 0, 1, 1],
            [0, 1, 0, 1, 0, 1],
            [0, 0, 1, 1, 1, 0]])
-
+    
     >>> P.inequalities
     (array([ 0.        ,  0.17447189,  0.43229383,  0.88469294]),
      array([ 0.        , -0.60815785, -0.73855608, -0.29099648]),
      array([ 0.        ,  0.53342276,  0.44253185,  0.72085069]),
      array([ 0.38859427,  0.29876108, -0.45137263, -0.84083563]),
      array([ 2.25937552,  0.41552563,  0.69427644, -0.58763822]))
-
+    
     >>> P.print_inequality(0)
     -0.174471886106*x + -0.432293832351*y + -0.884692943043*z <= 0.0
-
+    
     >>> P.faces[0].vertices
     (0, 1, 2)
-
+    
     >>> P.faces[0].area
     (7.049773119515445)
-
+    
     >>> P.faces[0].unormal
     array([-0.17447189, -0.43229383, -0.88469294])
     """
-
+    
     options.setdefault('rtol', 1e-05)
     options.setdefault('atol', 1e-08)
     options.setdefault('ftol', 1.5e-08)
     options.setdefault('xtol', 1.5e-08)
-
+    
     rtol = options['rtol']
     atol = options['atol']
     ftol = options['rtol']
     xtol = options['atol']
-
+    
     unormals = [np.array(u) for u in unormals]
 
-    # Check if the input satisfies the requirements.
+    # Check if the input satisfies the requirements. 
     if D is not None and D < 0:
         raise ValueError('D should be positive.')
 
     if (np.array(areas) <= 0 ).any():
         raise ValueError('The areas should be positive.')
-
-    #if not np.isclose(
-    #        sum(a*u for a,u in zip(areas,unormals)),0,rtol,atol).all():
-    #    raise ValueError('The normals do not sum to zero.')
+    
+    if not np.isclose(
+            sum(a*u for a,u in zip(areas,unormals)),0,rtol,atol).all():
+        raise ValueError('The normals do not sum to zero.')
 
     if not np.isclose([np.dot(u,u) for u in unormals],1).all():
         raise ValueError('The normals are not unit vectors.')
-
-    # Check if there are any repeated unormals and merge them if necessary
+    
+    # Check if there are any repeated unormals and merge them if necessary  
     unormals, areas = __removeDuplicates(unormals,areas,rtol,atol)
-
+    
     n = len(unormals)
-
+    
     dots = np.array(
         [[0]*i + [0.5] + [np.dot(unormals[i],unormals[j])
          for j in range(i+1,n)] for i in range(n)])
     dots = (dots + dots.T)
-
+    
     a = []
     for k in range(n):
         spam = np.array(
@@ -247,7 +247,7 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
         spam = (spam - spam.T)
         a.append(spam)
     del spam
-
+    
     # Find three independent normals or raise an Exception if unable to.
     gen = [0]
     for i in range(1,n):
@@ -260,7 +260,7 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
             break
     if len(gen) < 3:
         raise ValueError('The normals do not span 3D space.')
-
+    
     norms = np.array([[0]*(i+1) + [1 - dots[i,j]**2 for j in range(i+1,n)]
                       for i in range(n)])
     norms = (norms + norms.T)
@@ -269,15 +269,15 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
                     else (dots[i,j]*dots[j,k] - dots[i,k])/norms[i,j] if j!=i
                     else 0 for j in range(n)] if i!=k
                    else [-1]*n for i in range(n)]) for k in range(n)]
-
+    
     global L,r,Lmax,Lmin
-
+    
     Lmax = np.empty([n,n])
     Lmin = np.empty([n,n])
-
+    
     def area(h,jac=True):
         global L,r,Lmax,Lmin
-
+        
         H = np.insert(h,[gen[0],gen[1]-1,gen[2]-2],0)
         r = np.array([[H[j] - dots[i,j]*H[i] if j!=i else 0 for j in range(n)]
                       for i in range(n)])
@@ -289,7 +289,7 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
             spam = (spam + spam.T)
             b.append(spam)
         del spam
-
+        
         L = np.zeros([n,n])
         if jac:
             c = np.zeros([n,n])
@@ -320,7 +320,7 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
                                 kmin = k
                     L[i,j] = max(0,Lmax[i,j]-Lmin[i,j])
                     L[j,i] = L[i,j]
-
+                
                 if jac and L[i,j] != 0:
                     if kmax is not None:
                         c[i,j] += N[kmax][i,j]/a[kmax][i,j]
@@ -334,7 +334,7 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
                         spam = 1/a[kmin][i,j]
                         y[kmin][i,j] -= spam
                         y[kmin][j,i] -= spam
-
+                     
         #compute area
         A = np.array([0.5*sum(L[i,j]*r[i,j] if j!= i else 0 for j in range(n))
                       - areas[i] for i in range(n)])
@@ -359,68 +359,35 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
             return A,J
         else:
             return A
-
-
+            
+    
     coeff = np.linalg.solve([[dots[i,j] for j in gen] for i in gen],[-1]*3)
     c = sum(coeff[i] * unormals[gen[i]] for i in range(3))
     h0 = np.array([1 + np.dot(unormals[i],c)
                    for i in filter(lambda x: x not in gen, range(n))])
-
-##
-    d = np.sqrt(np.average(areas/(area(h0,False) + areas)))
-    h0 = d*h0
-    sol = __root(area, h0, method='lm', jac=True, options={'col_deriv': 1,
-                                                           'ftol': ftol,
-                                                           'xtol': xtol})
-
-    if not np.isclose(sol.fun,0,atol,rtol).all():
-
-        D = float(open('D.txt', 'r').read())
+    if D is not None:
         d = D
-        h0 = d*h0
-        sol = __root(area, h0, method='lm', jac=True, options={'col_deriv': 1,
-                                                               'ftol': ftol,
-                                                               'xtol': xtol})
-        if not np.isclose(sol.fun,0,atol,rtol).all():
-####
-            D = np.arange(0,1000,1/100)
-            for elem in D:
-                d = elem
-                h0 = d*h0
-                sol = __root(area, h0, method='lm', jac=True, options={'col_deriv': 1,
-                                                                        'ftol': ftol,
-                                                                        'xtol': xtol})
-                if np.isclose(sol.fun,0,atol,rtol).all():
-                    break
-####
-
-    np.savetxt("/Users/enekoaranguren/Documents/lqg/D.txt", [d])
-
-##
-
-#    if D is not None:
-#        d = D
-#    else:
-#        d = np.sqrt(np.average(areas/(area(h0,False) + areas)))
-#    h0 = d*h0
-
-#    sol = __root(area, h0, method='lm', jac=True, options={'col_deriv': 1,
-#                                                         'ftol': ftol,
-#                                                         'xtol': xtol})
-
-#    if not np.isclose(sol.fun,0,atol,rtol).all():
-#        if D is None:
-#            raise ReconstructError('\
-#                The algorithm was not able to reconstruct the polyhedron; try \
-#                to pass a custom value for D as input. For reference, the \
-#                value computed by the algorithm was {0}.'.format(d))
-#        else:
-#            raise ReconstructError('\
-#                The algorithm was not able to reconstruct the polyhedron; try \
-#                to pass a different value for D as input.')
+    else:
+        d = np.sqrt(np.average(areas/(area(h0,False) + areas)))
+    h0 = d*h0  
+    
+    sol = __root(area, h0, method='lm', jac=True, options={'col_deriv': 1,
+                                                         'ftol': ftol,
+                                                         'xtol': xtol})
+    
+    if not np.isclose(sol.fun,0,atol,rtol).all():
+        if D is None:
+            raise ReconstructError('\
+                The algorithm was not able to reconstruct the polyhedron; try \
+                to pass a custom value for D as input. For reference, the \
+                value computed by the algorithm was {0}.'.format(d))
+        else:
+            raise ReconstructError('\
+                The algorithm was not able to reconstruct the polyhedron; try \
+                to pass a different value for D as input.')
 
     H = np.insert(sol.x,[gen[0],gen[1]-1,gen[2]-2],0)
-
+    
     face_ad_matrix = (L>0).astype(int)
 
     num_edges = int(sum(sum(face_ad_matrix))/2)
@@ -428,11 +395,11 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
     vert_ad_matrix = np.zeros([num_vertices,num_vertices],dtype=int)
 
     faces = [[] for i in range(n)]
-
+    
     vertices = []
 
     endpoints = np.full([n,n],None)
-
+    
     for i in range(n):
         intersections = [j for j in range(n) if L[i,j]>0]
         '''
@@ -455,13 +422,13 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
             Likewise, if the edge e_ij has not been considered but the next one
             in the list has, the end vertex has already been added from a
             different face, so we do nothing.
-            '''
+            ''' 
             if j > i:
                 if nextj > i:
                     o_ij = (r[j,i]*unormals[i] + r[i,j]*unormals[j])/norms[i,j]
                     vertex = o_ij + Lmax[i,j]*np.cross(unormals[i],unormals[j])
                     vertices.append(vertex)
-                    idx = len(vertices) - 1
+                    idx = len(vertices) - 1                   
                 else:
                     idx = endpoints[nextj,i]
             else:
@@ -472,7 +439,7 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
         # Update vertex adjacency matrix with information from face i
         for j in intersections:
             vert_ad_matrix[endpoints[i,j],endpoints[j,i]] = 1
-
+    
     del L,Lmin,Lmax,r # Clean up global variables.
     return Polyhedron(vertices,vert_ad_matrix,faces,
                       face_ad_matrix,unormals,areas,H)
