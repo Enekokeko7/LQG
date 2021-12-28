@@ -368,61 +368,48 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
 
 ##
     d = np.sqrt(np.average(areas/(area(h0,False) + areas)))
-    h0 = d*h0
-    sol = __root(area, h0, method='lm', jac=True, options={'col_deriv': 1,
-                                                           'ftol': ftol,
-                                                           'xtol': xtol})
+    sol = __root(area, d*h0, method='lm', jac=True, options={'col_deriv': 1,
+                                                             'ftol': ftol,
+                                                             'xtol': xtol})
 
     if not np.isclose(sol.fun,0,atol,rtol).all():
         try:
-            h0 = np.array([1 + np.dot(unormals[i],c)
-                           for i in filter(lambda x: x not in gen, range(n))])
             d = float(open('D.txt', 'r').read())
-            print(d)
-            h0 = d*h0
-            sol = __root(area, h0, method='lm', jac=True, options={'col_deriv': 1,
-                                                                    'ftol': ftol,
-                                                                    'xtol': xtol})
-            print(sol.fun)
+            sol = __root(area, d*h0, method='lm', jac=True, options={'col_deriv': 1,
+                                                                     'ftol': ftol,
+                                                                     'xtol': xtol})
         except:
             None
 
         if not np.isclose(sol.fun,0,atol,rtol).all():
 ####
-            D = np.arange(0,10,1/1000)
-            for d in D:
-                h0 = np.array([1 + np.dot(unormals[i],c)
-                                for i in filter(lambda x: x not in gen, range(n))])
-                print(d)
-                h0 = d*h0
-                sol = __root(area, h0, method='lm', jac=True, options={'col_deriv': 1,
-                                                                        'ftol': ftol,
-                                                                        'xtol': xtol})
-                print(sol.fun)
-
-                if np.isclose(sol.fun,0,atol,rtol).all():
-                    break
+            try:
+                refD = float(open('D.txt', 'r').read())
+                D = np.arange(0.8*refD, 1.2*refD, 1/100)
+                for d in D:
+                    sol = __root(area, d*h0, method='lm', jac=True, options={'col_deriv': 1,
+                                                                            'ftol': ftol,
+                                                                            'xtol': xtol})
+                    if np.isclose(sol.fun,0,atol,rtol).all():
+                        break
+            except:
+                None
 
             if not np.isclose(sol.fun,0,atol,rtol).all():
-                try:
-                    refD = float(open('D.txt', 'r').read())
-                    D = np.arange(0.9*refD, 1.1*refD, 1/1000000)
-                    for d in D:
-                        h0 = np.array([1 + np.dot(unormals[i],c)
-                                        for i in filter(lambda x: x not in gen, range(n))])
-                        h0 = d*h0
-                        sol = __root(area, h0, method='lm', jac=True, options={'col_deriv': 1,
-                                                                                'ftol': ftol,
-                                                                                'xtol': xtol})
-                except:
-                    None
+                D = np.arange(0,10,1/100)
+                for d in D:
+                    sol = __root(area, d*h0, method='lm', jac=True, options={'col_deriv': 1,
+                                                                            'ftol': ftol,
+                                                                            'xtol': xtol})
+                    if np.isclose(sol.fun,0,atol,rtol).all():
+                        break
 
                 if not np.isclose(sol.fun,0,atol,rtol).all():
                     raise ReconstructError('\
                         The algorithm was not able to reconstruct the polyhedron with \
                         any of the Ds considered.')
 ####
-
+    h0 = d*h0
     np.savetxt("/Users/enekoaranguren/Documents/lqg/D.txt", [d])
 
 ##
