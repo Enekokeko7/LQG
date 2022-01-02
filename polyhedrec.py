@@ -385,7 +385,7 @@ def reconstruct(unormals,areas,D=None,options={}): #D=None
 ####
             try:
                 refD = float(open('D.txt', 'r').read())
-                D = np.arange(0.8*refD, 1.2*refD, 1/100)
+                D = np.arange(0.85*refD, 1.15*refD, 0.3*refD/100)
                 for d in D:
                     sol = __root(area, d*h0, method='lm', jac=True, options={'col_deriv': 1,
                                                                             'ftol': ftol,
