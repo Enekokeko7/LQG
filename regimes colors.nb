@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[    268817,       5090]
-NotebookOptionsPosition[    265040,       5026]
-NotebookOutlinePosition[    265380,       5041]
-CellTagsIndexPosition[    265337,       5038]
+NotebookDataLength[    284102,       5434]
+NotebookOptionsPosition[    279235,       5357]
+NotebookOutlinePosition[    279575,       5372]
+CellTagsIndexPosition[    279532,       5369]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -4283,36 +4283,209 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"vector\[Lambda]", "=", 
    RowBox[{"Range", "[", 
-    RowBox[{
-     RowBox[{"-", "10"}], ",", "10", ",", "0.1"}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{"0", ",", "10", ",", "1"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"vector\[Gamma]", "=", 
    RowBox[{"Range", "[", 
-    RowBox[{
-     RowBox[{"-", "10"}], ",", "10", ",", "0.1"}], "]"}]}], ";"}]}], "Input",
- CellChangeTimes->{{3.850141547741007*^9, 3.850141569731741*^9}},
+    RowBox[{"0", ",", "10", ",", "1"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.850141547741007*^9, 3.850141569731741*^9}, {
+  3.8502046082148943`*^9, 3.850204613878368*^9}, {3.850206416172942*^9, 
+  3.850206420766344*^9}, {3.850207317729179*^9, 3.8502073189477577`*^9}, {
+  3.8502081203416986`*^9, 3.8502081531672983`*^9}, {3.85021011981136*^9, 
+  3.850210121631998*^9}},
  CellLabel->"In[6]:=",ExpressionUUID->"c63d75a0-af00-46aa-85c8-f0501079f0c0"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
-  StyleBox[
+  RowBox[{
    RowBox[{
-    RowBox[{"2", " ", "edges"}], ";"}], "Subsection"]}]], "Input",
- CellChangeTimes->{{3.850141695955721*^9, 3.850141730846715*^9}, 
-   3.8501438694530973`*^9},ExpressionUUID->"64a9aba7-0d73-4718-930f-\
-183c79749197"],
+    RowBox[{"graficos1", " ", "=", " ", 
+     RowBox[{"ConstantArray", "[", 
+      RowBox[{
+       RowBox[{"Darker", "[", "Green", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Length", "[", "vector\[Lambda]", "]"}], ",", 
+         RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], "}"}]}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"For", "[", 
+     RowBox[{
+      RowBox[{"k", "=", "1"}], ",", " ", 
+      RowBox[{"k", "\[LessEqual]", " ", 
+       RowBox[{"Length", "[", "vector\[Lambda]", "]"}]}], ",", 
+      RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Print", "[", "k", "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"l", "=", "1"}], ",", " ", 
+         RowBox[{"l", "\[LessEqual]", " ", 
+          RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
+         RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"params", "=", 
+           RowBox[{"<|", 
+            RowBox[{
+             RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
+              RowBox[{"-", "100"}]}], ",", " ", 
+             RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "100"}], ",", 
+             "\[IndentingNewLine]", "\t\t", 
+             RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
+              RowBox[{"vector\[Gamma]", "[", 
+               RowBox[{"[", "l", "]"}], "]"}]}], ",", 
+             RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
+              RowBox[{"vector\[Lambda]", "[", 
+               RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+             "\t\t", 
+             RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "2"}]}], "|>"}]}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"Quiet", "[", 
+           RowBox[{"Check", "[", 
+            RowBox[{
+             RowBox[{"plot", "[", "params", "]"}], ",", 
+             RowBox[{
+              RowBox[{"graficos1", "[", 
+               RowBox[{"[", 
+                RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
+              RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
+        "\[IndentingNewLine]", "]"}]}]}], "]"}], ";"}], "\[IndentingNewLine]",
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+     "\"\</Users/enekoaranguren/Documents/lqg/color_spectrum/2/1.png\>\"", 
+      ",", 
+      RowBox[{"ArrayPlot", "[", 
+       RowBox[{"graficos1", ",", 
+        RowBox[{"FrameLabel", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Rotate", "[", 
+            RowBox[{
+             RowBox[{"MaTeX", "[", 
+              RowBox[{"\"\<|\\\\lambda|\>\"", ",", " ", 
+               RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}], ",", 
+             RowBox[{"270", " ", "Degree"}]}], "]"}], ",", 
+           RowBox[{"MaTeX", "[", 
+            RowBox[{"\"\<|\\\\gamma|\>\"", ",", " ", 
+             RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}]}], 
+          "}"}]}], ",", 
+        RowBox[{"DataReversed", "\[Rule]", " ", "True"}]}], "]"}], ",", 
+      RowBox[{"ImageResolution", "\[Rule]", " ", "300"}]}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.850204594778755*^9, 3.850204602191126*^9}, {
+  3.8502063836647377`*^9, 3.850206396669277*^9}, {3.8502066408341017`*^9, 
+  3.850206739722764*^9}, {3.8502070675227947`*^9, 3.850207082136146*^9}, {
+  3.8502076007723627`*^9, 3.850207615749324*^9}, {3.850207833498453*^9, 
+  3.8502078369680777`*^9}, {3.850207995053852*^9, 3.8502080156027718`*^9}, {
+  3.850208155004578*^9, 3.8502081572976427`*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"a24b9c24-f960-4b7f-b781-fbea66471f85"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["1"], "Print",
+ CellChangeTimes->{3.85020765851945*^9, 3.8502078509942427`*^9, 
+  3.8502081802450247`*^9, 3.850210137034321*^9},
+ CellLabel->
+  "During evaluation of \
+In[8]:=",ExpressionUUID->"86f61ba4-5cf9-4c4a-9e3d-087eaa7421a3"],
+
+Cell[BoxData["2"], "Print",
+ CellChangeTimes->{3.85020765851945*^9, 3.8502078509942427`*^9, 
+  3.8502081802450247`*^9, 3.850210151652874*^9},
+ CellLabel->
+  "During evaluation of \
+In[8]:=",ExpressionUUID->"fb0f6e81-7168-41c7-a382-918161fc9b33"],
+
+Cell[BoxData["3"], "Print",
+ CellChangeTimes->{3.85020765851945*^9, 3.8502078509942427`*^9, 
+  3.8502081802450247`*^9, 3.850210166854548*^9},
+ CellLabel->
+  "During evaluation of \
+In[8]:=",ExpressionUUID->"ae8ffa13-d848-4576-a0fa-a8848bc19f18"],
+
+Cell[BoxData["4"], "Print",
+ CellChangeTimes->{3.85020765851945*^9, 3.8502078509942427`*^9, 
+  3.8502081802450247`*^9, 3.850210193092454*^9},
+ CellLabel->
+  "During evaluation of \
+In[8]:=",ExpressionUUID->"381a88ae-6c50-4e83-aafc-4d799082a3a2"],
+
+Cell[BoxData["5"], "Print",
+ CellChangeTimes->{3.85020765851945*^9, 3.8502078509942427`*^9, 
+  3.8502081802450247`*^9, 3.8502102071902533`*^9},
+ CellLabel->
+  "During evaluation of \
+In[8]:=",ExpressionUUID->"48d80e92-1558-4e7a-9334-0d5d8bd36ac4"],
+
+Cell[BoxData["6"], "Print",
+ CellChangeTimes->{3.85020765851945*^9, 3.8502078509942427`*^9, 
+  3.8502081802450247`*^9, 3.8502102249196033`*^9},
+ CellLabel->
+  "During evaluation of \
+In[8]:=",ExpressionUUID->"52c04e29-f18c-4933-93ec-25dc5585ec81"],
+
+Cell[BoxData["7"], "Print",
+ CellChangeTimes->{3.85020765851945*^9, 3.8502078509942427`*^9, 
+  3.8502081802450247`*^9, 3.850210239737606*^9},
+ CellLabel->
+  "During evaluation of \
+In[8]:=",ExpressionUUID->"9e06e717-adc7-4fa1-8b30-9f4f0e353e79"],
+
+Cell[BoxData["8"], "Print",
+ CellChangeTimes->{3.85020765851945*^9, 3.8502078509942427`*^9, 
+  3.8502081802450247`*^9, 3.85021025422398*^9},
+ CellLabel->
+  "During evaluation of \
+In[8]:=",ExpressionUUID->"f142eeb8-4fb8-433a-862d-bb348cc55896"],
+
+Cell[BoxData["9"], "Print",
+ CellChangeTimes->{3.85020765851945*^9, 3.8502078509942427`*^9, 
+  3.8502081802450247`*^9, 3.8502102711093903`*^9},
+ CellLabel->
+  "During evaluation of \
+In[8]:=",ExpressionUUID->"6b4b2fd8-cede-48a8-b841-7af2a350641a"],
+
+Cell[BoxData["10"], "Print",
+ CellChangeTimes->{3.85020765851945*^9, 3.8502078509942427`*^9, 
+  3.8502081802450247`*^9, 3.8502103065467587`*^9},
+ CellLabel->
+  "During evaluation of \
+In[8]:=",ExpressionUUID->"8545651a-94f1-485a-b4fa-b8d246fcb864"],
+
+Cell[BoxData["11"], "Print",
+ CellChangeTimes->{3.85020765851945*^9, 3.8502078509942427`*^9, 
+  3.8502081802450247`*^9, 3.8502103219847918`*^9},
+ CellLabel->
+  "During evaluation of \
+In[8]:=",ExpressionUUID->"b58a22e6-26b9-4760-a9de-9051096bc8fe"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "Quit"}]], "Input",
+ CellChangeTimes->{{3.850208160248248*^9, 3.850208163112567*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"8cf9aaac-f0b1-493e-8923-ffa9b6b98d67"],
 
 Cell[BoxData[
  StyleBox[
   RowBox[{
-   RowBox[{"1", ")"}], ";"}], "Subsubsection"]], "Input",
- CellChangeTimes->{{3.850141735295045*^9, 3.85014176332325*^9}, 
-   3.850143870938087*^9},
- EmphasizeSyntaxErrors->
-  True,ExpressionUUID->"74587261-52d0-40af-aa1a-494613612af5"],
+   RowBox[{"2", " ", "edges"}], ";"}], "Subsection"]], "Input",
+ CellChangeTimes->{{3.850141695955721*^9, 3.850141730846715*^9}, 
+   3.8501438694530973`*^9, 
+   3.8502045600449133`*^9},ExpressionUUID->"64a9aba7-0d73-4718-930f-\
+183c79749197"],
 
-Cell[CellGroupData[{
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"1", ";"}], "Subsubsection"]], "Input",
+ CellChangeTimes->{{3.850141735295045*^9, 3.85014176332325*^9}, 
+   3.850143870938087*^9, 3.850204500684926*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"74587261-52d0-40af-aa1a-494613612af5"],
 
 Cell[BoxData[{
  RowBox[{
@@ -4334,68 +4507,79 @@ Cell[BoxData[{
      RowBox[{"k", "\[LessEqual]", " ", 
       RowBox[{"Length", "[", "vector\[Lambda]", "]"}]}], ",", 
      RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
-     RowBox[{"For", "[", 
-      RowBox[{
-       RowBox[{"l", "=", "1"}], ",", " ", 
-       RowBox[{"l", "\[LessEqual]", " ", 
-        RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
-       RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Print", "[", "k", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
        RowBox[{
-        RowBox[{"params", "=", 
-         RowBox[{"<|", 
-          RowBox[{
-           RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
-            RowBox[{"-", "10000"}]}], ",", " ", 
-           RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "10000"}], ",", 
-           "\[IndentingNewLine]", "\t\t", 
-           RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
-            RowBox[{"vector\[Gamma]", "[", 
-             RowBox[{"[", "l", "]"}], "]"}]}], ",", 
-           RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
-            RowBox[{"vector\[Lambda]", "[", 
-             RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
-           "\t\t", 
-           RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "2"}]}], "|>"}]}], ";", 
-        "\[IndentingNewLine]", "\[IndentingNewLine]", 
-        RowBox[{"Quiet", "[", 
-         RowBox[{"Check", "[", 
-          RowBox[{
-           RowBox[{"plot", "[", "params", "]"}], ",", 
+        RowBox[{"l", "=", "1"}], ",", " ", 
+        RowBox[{"l", "\[LessEqual]", " ", 
+         RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
+        RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"params", "=", 
+          RowBox[{"<|", 
            RowBox[{
-            RowBox[{"graficos1", "[", 
-             RowBox[{"[", 
-              RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
-            RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
-      "\[IndentingNewLine]", "]"}]}], "]"}], ";"}], 
+            RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
+             RowBox[{"-", "10000"}]}], ",", " ", 
+            RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "10000"}], ",", 
+            "\[IndentingNewLine]", "\t\t", 
+            RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
+             RowBox[{"vector\[Gamma]", "[", 
+              RowBox[{"[", "l", "]"}], "]"}]}], ",", 
+            RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
+             RowBox[{"vector\[Lambda]", "[", 
+              RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+            "\t\t", 
+            RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "2"}]}], "|>"}]}], ";", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"Quiet", "[", 
+          RowBox[{"Check", "[", 
+           RowBox[{
+            RowBox[{"plot", "[", "params", "]"}], ",", 
+            RowBox[{
+             RowBox[{"graficos1", "[", 
+              RowBox[{"[", 
+               RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
+             RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}]}]}], "]"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Export", "[", 
    RowBox[{
    "\"\</Users/enekoaranguren/Documents/lqg/color_spectrum/2/1.png\>\"", ",", 
     
-    RowBox[{"ArrayPlot", "[", "graficos1", "]"}], ",", 
+    RowBox[{"ArrayPlot", "[", 
+     RowBox[{"graficos1", ",", 
+      RowBox[{"FrameLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Rotate", "[", 
+          RowBox[{
+           RowBox[{"MaTeX", "[", 
+            RowBox[{"\"\<|\\\\lambda|\>\"", ",", " ", 
+             RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}], ",", 
+           RowBox[{"270", " ", "Degree"}]}], "]"}], ",", 
+         RowBox[{"MaTeX", "[", 
+          RowBox[{"\"\<|\\\\gamma|\>\"", ",", " ", 
+           RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}]}], 
+        "}"}]}], ",", 
+      RowBox[{"DataReversed", "\[Rule]", " ", "True"}]}], "]"}], ",", 
     RowBox[{"ImageResolution", "\[Rule]", " ", "300"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.850141550565022*^9, 3.85014157833857*^9}, {
   3.8501416087496567`*^9, 3.8501416164229097`*^9}, {3.85014205436271*^9, 
-  3.850142058350588*^9}},
- CellLabel->"In[9]:=",ExpressionUUID->"af05b2b5-589d-4098-992b-08675ee94ad7"],
-
-Cell[BoxData["$Aborted"], "Output",
- CellChangeTimes->{3.8501438680539837`*^9},
- CellLabel->"Out[10]=",ExpressionUUID->"a0f61bbd-bd61-4be8-98cc-0304dfda2e42"],
-
-Cell[BoxData["$Aborted"], "Output",
- CellChangeTimes->{3.850143868172715*^9},
- CellLabel->"Out[11]=",ExpressionUUID->"1321b527-b4d3-43f9-af7b-a2b4a650beea"]
-}, Open  ]],
+  3.850142058350588*^9}, {3.850154631201713*^9, 3.850154640462411*^9}, {
+  3.850208027803575*^9, 3.850208028312457*^9}, {3.850208058457527*^9, 
+  3.850208065311952*^9}},ExpressionUUID->"af05b2b5-589d-4098-992b-\
+08675ee94ad7"],
 
 Cell[BoxData[
  StyleBox[
-  RowBox[{
-   RowBox[{"2", ")"}], ";"}], "Subsubsection"]], "Input",
+  RowBox[{"2", ";"}], "Subsubsection"]], "Input",
  CellChangeTimes->{{3.8501417796878977`*^9, 3.850141811251556*^9}, 
-   3.850143880640174*^9},ExpressionUUID->"512b33eb-a49e-47f4-8980-\
+   3.850143880640174*^9, 
+   3.8502045025886803`*^9},ExpressionUUID->"512b33eb-a49e-47f4-8980-\
 6a0152367a57"],
 
 Cell[BoxData[{
@@ -4418,62 +4602,81 @@ Cell[BoxData[{
      RowBox[{"k", "\[LessEqual]", " ", 
       RowBox[{"Length", "[", "vector\[Lambda]", "]"}]}], ",", 
      RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
-     RowBox[{"For", "[", 
-      RowBox[{
-       RowBox[{"l", "=", "1"}], ",", " ", 
-       RowBox[{"l", "\[LessEqual]", " ", 
-        RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
-       RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Print", "[", "k", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
        RowBox[{
-        RowBox[{"params", "=", 
-         RowBox[{"<|", 
-          RowBox[{
-           RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
-            RowBox[{"-", "1000"}]}], ",", " ", 
-           RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "1000"}], ",", 
-           "\[IndentingNewLine]", "\t\t", 
-           RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
-            RowBox[{"vector\[Gamma]", "[", 
-             RowBox[{"[", "l", "]"}], "]"}]}], ",", 
-           RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
-            RowBox[{"vector\[Lambda]", "[", 
-             RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
-           "\t\t", 
-           RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "2"}]}], "|>"}]}], ";", 
-        "\[IndentingNewLine]", "\[IndentingNewLine]", 
-        RowBox[{"Quiet", "[", 
-         RowBox[{"Check", "[", 
-          RowBox[{
-           RowBox[{"plot", "[", "params", "]"}], ",", 
+        RowBox[{"l", "=", "1"}], ",", " ", 
+        RowBox[{"l", "\[LessEqual]", " ", 
+         RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
+        RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"params", "=", 
+          RowBox[{"<|", 
            RowBox[{
-            RowBox[{"graficos1", "[", 
-             RowBox[{"[", 
-              RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
-            RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
-      "\[IndentingNewLine]", "]"}]}], "]"}], ";"}], 
+            RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
+             RowBox[{"-", "1000"}]}], ",", " ", 
+            RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "1000"}], ",", 
+            "\[IndentingNewLine]", "\t\t", 
+            RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
+             RowBox[{"vector\[Gamma]", "[", 
+              RowBox[{"[", "l", "]"}], "]"}]}], ",", 
+            RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
+             RowBox[{"vector\[Lambda]", "[", 
+              RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+            "\t\t", 
+            RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "2"}]}], "|>"}]}], ";", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"Quiet", "[", 
+          RowBox[{"Check", "[", 
+           RowBox[{
+            RowBox[{"plot", "[", "params", "]"}], ",", 
+            RowBox[{
+             RowBox[{"graficos1", "[", 
+              RowBox[{"[", 
+               RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
+             RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}]}]}], "]"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Export", "[", 
    RowBox[{
    "\"\</Users/enekoaranguren/Documents/lqg/color_spectrum/2/2.png\>\"", ",", 
     
-    RowBox[{"ArrayPlot", "[", "graficos1", "]"}], ",", 
+    RowBox[{"ArrayPlot", "[", 
+     RowBox[{"graficos1", ",", 
+      RowBox[{"FrameLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Rotate", "[", 
+          RowBox[{
+           RowBox[{"MaTeX", "[", 
+            RowBox[{"\"\<|\\\\lambda|\>\"", ",", " ", 
+             RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}], ",", 
+           RowBox[{"270", " ", "Degree"}]}], "]"}], ",", 
+         RowBox[{"MaTeX", "[", 
+          RowBox[{"\"\<|\\\\gamma|\>\"", ",", " ", 
+           RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}]}], 
+        "}"}]}], ",", 
+      RowBox[{"DataReversed", "\[Rule]", " ", "True"}]}], "]"}], ",", 
     RowBox[{"ImageResolution", "\[Rule]", " ", "300"}]}], "]"}], 
   ";"}]}], "Input",
  CellChangeTimes->{
   3.850141553096533*^9, {3.850141587891903*^9, 3.850141596331661*^9}, {
    3.850141629509563*^9, 3.850141646700172*^9}, {3.8501417920450706`*^9, 
    3.850141807374118*^9}, {3.850142063067479*^9, 3.8501420658167877`*^9}, {
-   3.850142543225451*^9, 
-   3.85014254808384*^9}},ExpressionUUID->"25da0343-d50d-408e-80dc-\
+   3.850142543225451*^9, 3.85014254808384*^9}, {3.850208030122508*^9, 
+   3.850208030365252*^9}, {3.8502080626050997`*^9, 
+   3.850208066887656*^9}},ExpressionUUID->"25da0343-d50d-408e-80dc-\
 fc97ef83dbaa"],
 
 Cell[BoxData[
  StyleBox[
-  RowBox[{
-   RowBox[{"3", ")"}], ";"}], "Subsubsection"]], "Input",
+  RowBox[{"3", ";"}], "Subsubsection"]], "Input",
  CellChangeTimes->{{3.850141800251985*^9, 3.850141809474*^9}, 
-   3.850143882489992*^9},ExpressionUUID->"ddcc5084-98a6-479b-bc83-\
+   3.850143882489992*^9, 
+   3.850204505175109*^9},ExpressionUUID->"ddcc5084-98a6-479b-bc83-\
 e3fd8786e2fd"],
 
 Cell[BoxData[{
@@ -4496,69 +4699,87 @@ Cell[BoxData[{
      RowBox[{"k", "\[LessEqual]", " ", 
       RowBox[{"Length", "[", "vector\[Lambda]", "]"}]}], ",", 
      RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
-     RowBox[{"For", "[", 
-      RowBox[{
-       RowBox[{"l", "=", "1"}], ",", " ", 
-       RowBox[{"l", "\[LessEqual]", " ", 
-        RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
-       RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Print", "[", "k", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
        RowBox[{
-        RowBox[{"params", "=", 
-         RowBox[{"<|", 
-          RowBox[{
-           RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
-            RowBox[{"-", "10"}]}], ",", " ", 
-           RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "10"}], ",", 
-           "\[IndentingNewLine]", "\t\t", 
-           RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
-            RowBox[{"vector\[Gamma]", "[", 
-             RowBox[{"[", "l", "]"}], "]"}]}], ",", 
-           RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
-            RowBox[{"vector\[Lambda]", "[", 
-             RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
-           "\t\t", 
-           RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "2"}]}], "|>"}]}], ";", 
-        "\[IndentingNewLine]", "\[IndentingNewLine]", 
-        RowBox[{"Quiet", "[", 
-         RowBox[{"Check", "[", 
-          RowBox[{
-           RowBox[{"plot", "[", "params", "]"}], ",", 
+        RowBox[{"l", "=", "1"}], ",", " ", 
+        RowBox[{"l", "\[LessEqual]", " ", 
+         RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
+        RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"params", "=", 
+          RowBox[{"<|", 
            RowBox[{
-            RowBox[{"graficos1", "[", 
-             RowBox[{"[", 
-              RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
-            RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
-      "\[IndentingNewLine]", "]"}]}], "]"}], ";"}], 
+            RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
+             RowBox[{"-", "10"}]}], ",", " ", 
+            RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "10"}], ",", 
+            "\[IndentingNewLine]", "\t\t", 
+            RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
+             RowBox[{"vector\[Gamma]", "[", 
+              RowBox[{"[", "l", "]"}], "]"}]}], ",", 
+            RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
+             RowBox[{"vector\[Lambda]", "[", 
+              RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+            "\t\t", 
+            RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "2"}]}], "|>"}]}], ";", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"Quiet", "[", 
+          RowBox[{"Check", "[", 
+           RowBox[{
+            RowBox[{"plot", "[", "params", "]"}], ",", 
+            RowBox[{
+             RowBox[{"graficos1", "[", 
+              RowBox[{"[", 
+               RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
+             RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}]}]}], "]"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Export", "[", 
    RowBox[{
    "\"\</Users/enekoaranguren/Documents/lqg/color_spectrum/2/3.png\>\"", ",", 
     
-    RowBox[{"ArrayPlot", "[", "graficos1", "]"}], ",", 
+    RowBox[{"ArrayPlot", "[", 
+     RowBox[{"graficos1", ",", 
+      RowBox[{"FrameLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Rotate", "[", 
+          RowBox[{
+           RowBox[{"MaTeX", "[", 
+            RowBox[{"\"\<|\\\\lambda|\>\"", ",", " ", 
+             RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}], ",", 
+           RowBox[{"270", " ", "Degree"}]}], "]"}], ",", 
+         RowBox[{"MaTeX", "[", 
+          RowBox[{"\"\<|\\\\gamma|\>\"", ",", " ", 
+           RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}]}], 
+        "}"}]}], ",", 
+      RowBox[{"DataReversed", "\[Rule]", " ", "True"}]}], "]"}], ",", 
     RowBox[{"ImageResolution", "\[Rule]", " ", "300"}]}], "]"}], 
   ";"}]}], "Input",
  CellChangeTimes->{{3.850141795279338*^9, 3.850141798252467*^9}, {
-  3.850142068906671*^9, 3.8501420747585697`*^9}, {3.850142536863394*^9, 
-  3.850142541019082*^9}},ExpressionUUID->"418d8171-53ed-4e33-8bea-\
+   3.850142068906671*^9, 3.8501420747585697`*^9}, {3.850142536863394*^9, 
+   3.850142541019082*^9}, {3.850208032264287*^9, 3.850208032464422*^9}, 
+   3.850208069562325*^9},ExpressionUUID->"418d8171-53ed-4e33-8bea-\
 3eb90402392a"],
 
 Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", 
+ StyleBox[
   RowBox[{
-   StyleBox[
-    RowBox[{"4", " ", "edges"}], "Subsection"], ";"}]}]], "Input",
+   RowBox[{"4", " ", "edges"}], ";"}], "Subsection"]], "Input",
  CellChangeTimes->{{3.850141825740795*^9, 3.850141830234857*^9}, 
-   3.8501438879311533`*^9},ExpressionUUID->"6b178331-8c62-40e7-bc88-\
+   3.8501438879311533`*^9, 
+   3.850204566204238*^9},ExpressionUUID->"6b178331-8c62-40e7-bc88-\
 04ffdccdd9a8"],
 
 Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"1", ")"}], "Subsubsection"], ";"}]], "Input",
+ StyleBox[
+  RowBox[{"1", ";"}], "Subsubsection"]], "Input",
  CellChangeTimes->{{3.850141831514954*^9, 3.8501418329099493`*^9}, 
-   3.850142038404416*^9, 
-   3.85014388867889*^9},ExpressionUUID->"9cf115c4-0a1c-4842-897b-\
+   3.850142038404416*^9, 3.85014388867889*^9, 
+   3.850204511711789*^9},ExpressionUUID->"9cf115c4-0a1c-4842-897b-\
 ecdda092b70f"],
 
 Cell[BoxData[{
@@ -4581,60 +4802,78 @@ Cell[BoxData[{
      RowBox[{"k", "\[LessEqual]", " ", 
       RowBox[{"Length", "[", "vector\[Lambda]", "]"}]}], ",", 
      RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
-     RowBox[{"For", "[", 
-      RowBox[{
-       RowBox[{"l", "=", "1"}], ",", " ", 
-       RowBox[{"l", "\[LessEqual]", " ", 
-        RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
-       RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Print", "[", "k", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
        RowBox[{
-        RowBox[{"params", "=", 
-         RowBox[{"<|", 
-          RowBox[{
-           RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
-            RowBox[{"-", "10000"}]}], ",", " ", 
-           RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "10000"}], ",", 
-           "\[IndentingNewLine]", "\t\t", 
-           RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
-            RowBox[{"vector\[Gamma]", "[", 
-             RowBox[{"[", "l", "]"}], "]"}]}], ",", 
-           RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
-            RowBox[{"vector\[Lambda]", "[", 
-             RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
-           "\t\t", 
-           RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "4"}]}], "|>"}]}], ";", 
-        "\[IndentingNewLine]", "\[IndentingNewLine]", 
-        RowBox[{"Quiet", "[", 
-         RowBox[{"Check", "[", 
-          RowBox[{
-           RowBox[{"plot", "[", "params", "]"}], ",", 
+        RowBox[{"l", "=", "1"}], ",", " ", 
+        RowBox[{"l", "\[LessEqual]", " ", 
+         RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
+        RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"params", "=", 
+          RowBox[{"<|", 
            RowBox[{
-            RowBox[{"graficos1", "[", 
-             RowBox[{"[", 
-              RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
-            RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
-      "\[IndentingNewLine]", "]"}]}], "]"}], ";"}], 
+            RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
+             RowBox[{"-", "10000"}]}], ",", " ", 
+            RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "10000"}], ",", 
+            "\[IndentingNewLine]", "\t\t", 
+            RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
+             RowBox[{"vector\[Gamma]", "[", 
+              RowBox[{"[", "l", "]"}], "]"}]}], ",", 
+            RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
+             RowBox[{"vector\[Lambda]", "[", 
+              RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+            "\t\t", 
+            RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "4"}]}], "|>"}]}], ";", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"Quiet", "[", 
+          RowBox[{"Check", "[", 
+           RowBox[{
+            RowBox[{"plot", "[", "params", "]"}], ",", 
+            RowBox[{
+             RowBox[{"graficos1", "[", 
+              RowBox[{"[", 
+               RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
+             RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}]}]}], "]"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Export", "[", 
    RowBox[{
    "\"\</Users/enekoaranguren/Documents/lqg/color_spectrum/4/1.png\>\"", ",", 
     
-    RowBox[{"ArrayPlot", "[", "graficos1", "]"}], ",", 
+    RowBox[{"ArrayPlot", "[", 
+     RowBox[{"graficos1", ",", 
+      RowBox[{"FrameLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Rotate", "[", 
+          RowBox[{
+           RowBox[{"MaTeX", "[", 
+            RowBox[{"\"\<|\\\\lambda|\>\"", ",", " ", 
+             RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}], ",", 
+           RowBox[{"270", " ", "Degree"}]}], "]"}], ",", 
+         RowBox[{"MaTeX", "[", 
+          RowBox[{"\"\<|\\\\gamma|\>\"", ",", " ", 
+           RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}]}], 
+        "}"}]}], ",", 
+      RowBox[{"DataReversed", "\[Rule]", " ", "True"}]}], "]"}], ",", 
     RowBox[{"ImageResolution", "\[Rule]", " ", "300"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{
   3.8501415544913387`*^9, 3.850141669447462*^9, {3.850142079340878*^9, 
-   3.8501420885279913`*^9}},ExpressionUUID->"a62c3bc2-e25f-45d0-8ddf-\
+   3.8501420885279913`*^9}, {3.850208034537777*^9, 3.850208034738962*^9}, 
+   3.850208072477269*^9},ExpressionUUID->"a62c3bc2-e25f-45d0-8ddf-\
 b7bc06200852"],
 
 Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"2", ")"}], "Subsubsection"], ";"}]], "Input",
+ StyleBox[
+  RowBox[{"2", ";"}], "Subsubsection"]], "Input",
  CellChangeTimes->{{3.8501418365818644`*^9, 3.850141837023591*^9}, 
-   3.850142097941023*^9, 
-   3.8501438900516577`*^9},ExpressionUUID->"f26513ca-f480-489b-9d90-\
+   3.850142097941023*^9, 3.8501438900516577`*^9, {3.850204519626731*^9, 
+   3.850204520231555*^9}},ExpressionUUID->"f26513ca-f480-489b-9d90-\
 15b97bb4009a"],
 
 Cell[BoxData[{
@@ -4657,61 +4896,79 @@ Cell[BoxData[{
      RowBox[{"k", "\[LessEqual]", " ", 
       RowBox[{"Length", "[", "vector\[Lambda]", "]"}]}], ",", 
      RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
-     RowBox[{"For", "[", 
-      RowBox[{
-       RowBox[{"l", "=", "1"}], ",", " ", 
-       RowBox[{"l", "\[LessEqual]", " ", 
-        RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
-       RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Print", "[", "k", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
        RowBox[{
-        RowBox[{"params", "=", 
-         RowBox[{"<|", 
-          RowBox[{
-           RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
-            RowBox[{"-", "1000"}]}], ",", " ", 
-           RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "1000"}], ",", 
-           "\[IndentingNewLine]", "\t\t", 
-           RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
-            RowBox[{"vector\[Gamma]", "[", 
-             RowBox[{"[", "l", "]"}], "]"}]}], ",", 
-           RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
-            RowBox[{"vector\[Lambda]", "[", 
-             RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
-           "\t\t", 
-           RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "4"}]}], "|>"}]}], ";", 
-        "\[IndentingNewLine]", "\[IndentingNewLine]", 
-        RowBox[{"Quiet", "[", 
-         RowBox[{"Check", "[", 
-          RowBox[{
-           RowBox[{"plot", "[", "params", "]"}], ",", 
+        RowBox[{"l", "=", "1"}], ",", " ", 
+        RowBox[{"l", "\[LessEqual]", " ", 
+         RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
+        RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"params", "=", 
+          RowBox[{"<|", 
            RowBox[{
-            RowBox[{"graficos1", "[", 
-             RowBox[{"[", 
-              RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
-            RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
-      "\[IndentingNewLine]", "]"}]}], "]"}], ";"}], 
+            RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
+             RowBox[{"-", "1000"}]}], ",", " ", 
+            RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "1000"}], ",", 
+            "\[IndentingNewLine]", "\t\t", 
+            RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
+             RowBox[{"vector\[Gamma]", "[", 
+              RowBox[{"[", "l", "]"}], "]"}]}], ",", 
+            RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
+             RowBox[{"vector\[Lambda]", "[", 
+              RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+            "\t\t", 
+            RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "4"}]}], "|>"}]}], ";", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"Quiet", "[", 
+          RowBox[{"Check", "[", 
+           RowBox[{
+            RowBox[{"plot", "[", "params", "]"}], ",", 
+            RowBox[{
+             RowBox[{"graficos1", "[", 
+              RowBox[{"[", 
+               RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
+             RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}]}]}], "]"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Export", "[", 
    RowBox[{
    "\"\</Users/enekoaranguren/Documents/lqg/color_spectrum/4/2.png\>\"", ",", 
     
-    RowBox[{"ArrayPlot", "[", "graficos1", "]"}], ",", 
+    RowBox[{"ArrayPlot", "[", 
+     RowBox[{"graficos1", ",", 
+      RowBox[{"FrameLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Rotate", "[", 
+          RowBox[{
+           RowBox[{"MaTeX", "[", 
+            RowBox[{"\"\<|\\\\lambda|\>\"", ",", " ", 
+             RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}], ",", 
+           RowBox[{"270", " ", "Degree"}]}], "]"}], ",", 
+         RowBox[{"MaTeX", "[", 
+          RowBox[{"\"\<|\\\\gamma|\>\"", ",", " ", 
+           RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}]}], 
+        "}"}]}], ",", 
+      RowBox[{"DataReversed", "\[Rule]", " ", "True"}]}], "]"}], ",", 
     RowBox[{"ImageResolution", "\[Rule]", " ", "300"}]}], "]"}], 
   ";"}]}], "Input",
  CellChangeTimes->{
   3.850141556219207*^9, {3.850141673718072*^9, 3.8501416741416693`*^9}, {
    3.850142101766162*^9, 3.850142120845789*^9}, {3.8501425274618673`*^9, 
-   3.850142532236451*^9}},ExpressionUUID->"d1c716b7-6a00-452d-b86f-\
+   3.850142532236451*^9}, {3.850208036881671*^9, 3.850208037094208*^9}, 
+   3.8502080761032677`*^9},ExpressionUUID->"d1c716b7-6a00-452d-b86f-\
 52a6a29eb0e1"],
 
 Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"3", ")"}], "Subsubsection"], ";"}]], "Input",
+ StyleBox[
+  RowBox[{"3", ";"}], "Subsubsection"]], "Input",
  CellChangeTimes->{{3.850141840590314*^9, 3.850141840965513*^9}, 
-   3.850142158042143*^9, 
-   3.8501438914860153`*^9},ExpressionUUID->"dc14c89c-6c49-454f-8cbc-\
+   3.850142158042143*^9, 3.8501438914860153`*^9, {3.850204522496546*^9, 
+   3.850204522861518*^9}},ExpressionUUID->"dc14c89c-6c49-454f-8cbc-\
 dca3d55d3885"],
 
 Cell[BoxData[{
@@ -4734,70 +4991,88 @@ Cell[BoxData[{
      RowBox[{"k", "\[LessEqual]", " ", 
       RowBox[{"Length", "[", "vector\[Lambda]", "]"}]}], ",", 
      RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
-     RowBox[{"For", "[", 
-      RowBox[{
-       RowBox[{"l", "=", "1"}], ",", " ", 
-       RowBox[{"l", "\[LessEqual]", " ", 
-        RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
-       RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Print", "[", "k", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
        RowBox[{
-        RowBox[{"params", "=", 
-         RowBox[{"<|", 
-          RowBox[{
-           RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
-            RowBox[{"-", "10"}]}], ",", " ", 
-           RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "10"}], ",", 
-           "\[IndentingNewLine]", "\t\t", 
-           RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
-            RowBox[{"vector\[Gamma]", "[", 
-             RowBox[{"[", "l", "]"}], "]"}]}], ",", 
-           RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
-            RowBox[{"vector\[Lambda]", "[", 
-             RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
-           "\t\t", 
-           RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "4"}]}], "|>"}]}], ";", 
-        "\[IndentingNewLine]", "\[IndentingNewLine]", 
-        RowBox[{"Quiet", "[", 
-         RowBox[{"Check", "[", 
-          RowBox[{
-           RowBox[{"plot", "[", "params", "]"}], ",", 
+        RowBox[{"l", "=", "1"}], ",", " ", 
+        RowBox[{"l", "\[LessEqual]", " ", 
+         RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
+        RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"params", "=", 
+          RowBox[{"<|", 
            RowBox[{
-            RowBox[{"graficos1", "[", 
-             RowBox[{"[", 
-              RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
-            RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
-      "\[IndentingNewLine]", "]"}]}], "]"}], ";"}], 
+            RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
+             RowBox[{"-", "10"}]}], ",", " ", 
+            RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "10"}], ",", 
+            "\[IndentingNewLine]", "\t\t", 
+            RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
+             RowBox[{"vector\[Gamma]", "[", 
+              RowBox[{"[", "l", "]"}], "]"}]}], ",", 
+            RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
+             RowBox[{"vector\[Lambda]", "[", 
+              RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+            "\t\t", 
+            RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "4"}]}], "|>"}]}], ";", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"Quiet", "[", 
+          RowBox[{"Check", "[", 
+           RowBox[{
+            RowBox[{"plot", "[", "params", "]"}], ",", 
+            RowBox[{
+             RowBox[{"graficos1", "[", 
+              RowBox[{"[", 
+               RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
+             RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}]}]}], "]"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Export", "[", 
    RowBox[{
    "\"\</Users/enekoaranguren/Documents/lqg/color_spectrum/4/3.png\>\"", ",", 
     
-    RowBox[{"ArrayPlot", "[", "graficos1", "]"}], ",", 
+    RowBox[{"ArrayPlot", "[", 
+     RowBox[{"graficos1", ",", 
+      RowBox[{"FrameLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Rotate", "[", 
+          RowBox[{
+           RowBox[{"MaTeX", "[", 
+            RowBox[{"\"\<|\\\\lambda|\>\"", ",", " ", 
+             RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}], ",", 
+           RowBox[{"270", " ", "Degree"}]}], "]"}], ",", 
+         RowBox[{"MaTeX", "[", 
+          RowBox[{"\"\<|\\\\gamma|\>\"", ",", " ", 
+           RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}]}], 
+        "}"}]}], ",", 
+      RowBox[{"DataReversed", "\[Rule]", " ", "True"}]}], "]"}], ",", 
     RowBox[{"ImageResolution", "\[Rule]", " ", "300"}]}], "]"}], 
   ";"}]}], "Input",
  CellChangeTimes->{
   3.8501415577943497`*^9, {3.850141678046891*^9, 3.8501416785419273`*^9}, {
    3.8501421251281233`*^9, 3.8501421439173203`*^9}, {3.850142519959195*^9, 
-   3.850142525556596*^9}},ExpressionUUID->"fd46ad3b-90fc-48aa-af72-\
+   3.850142525556596*^9}, {3.850208039153364*^9, 3.8502080393366337`*^9}, 
+   3.8502080794557343`*^9},ExpressionUUID->"fd46ad3b-90fc-48aa-af72-\
 f9986a54b147"],
 
 Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", 
+ StyleBox[
   RowBox[{
-   StyleBox[
-    RowBox[{"8", " ", "edges"}], "Subsection"], ";"}]}]], "Input",
+   RowBox[{"8", " ", "edges"}], ";"}], "Subsection"]], "Input",
  CellChangeTimes->{{3.850141843735096*^9, 3.850141845005472*^9}, 
-   3.850143892832931*^9},ExpressionUUID->"ed105b2d-816a-4bd1-b205-\
+   3.850143892832931*^9, 
+   3.850204570974382*^9},ExpressionUUID->"ed105b2d-816a-4bd1-b205-\
 940ccfd18d40"],
 
 Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"1", ")"}], "Subsubsection"], ";"}]], "Input",
+ StyleBox[
+  RowBox[{"1", ";"}], "Subsubsection"]], "Input",
  CellChangeTimes->{{3.850141847973475*^9, 3.850141849678328*^9}, 
-   3.850142166334914*^9, 
-   3.850143893404203*^9},ExpressionUUID->"bc48b523-5c43-490f-9bd3-\
+   3.850142166334914*^9, 3.850143893404203*^9, {3.850204526483746*^9, 
+   3.850204526954513*^9}},ExpressionUUID->"bc48b523-5c43-490f-9bd3-\
 096d87a0d5c4"],
 
 Cell[BoxData[{
@@ -4820,61 +5095,79 @@ Cell[BoxData[{
      RowBox[{"k", "\[LessEqual]", " ", 
       RowBox[{"Length", "[", "vector\[Lambda]", "]"}]}], ",", 
      RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
-     RowBox[{"For", "[", 
-      RowBox[{
-       RowBox[{"l", "=", "1"}], ",", " ", 
-       RowBox[{"l", "\[LessEqual]", " ", 
-        RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
-       RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Print", "[", "k", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
        RowBox[{
-        RowBox[{"params", "=", 
-         RowBox[{"<|", 
-          RowBox[{
-           RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
-            RowBox[{"-", "10000"}]}], ",", " ", 
-           RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "10000"}], ",", 
-           "\[IndentingNewLine]", "\t\t", 
-           RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
-            RowBox[{"vector\[Gamma]", "[", 
-             RowBox[{"[", "l", "]"}], "]"}]}], ",", 
-           RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
-            RowBox[{"vector\[Lambda]", "[", 
-             RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
-           "\t\t", 
-           RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "8"}]}], "|>"}]}], ";", 
-        "\[IndentingNewLine]", "\[IndentingNewLine]", 
-        RowBox[{"Quiet", "[", 
-         RowBox[{"Check", "[", 
-          RowBox[{
-           RowBox[{"plot", "[", "params", "]"}], ",", 
+        RowBox[{"l", "=", "1"}], ",", " ", 
+        RowBox[{"l", "\[LessEqual]", " ", 
+         RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
+        RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"params", "=", 
+          RowBox[{"<|", 
            RowBox[{
-            RowBox[{"graficos1", "[", 
-             RowBox[{"[", 
-              RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
-            RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
-      "\[IndentingNewLine]", "]"}]}], "]"}], ";"}], 
+            RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
+             RowBox[{"-", "10000"}]}], ",", " ", 
+            RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "10000"}], ",", 
+            "\[IndentingNewLine]", "\t\t", 
+            RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
+             RowBox[{"vector\[Gamma]", "[", 
+              RowBox[{"[", "l", "]"}], "]"}]}], ",", 
+            RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
+             RowBox[{"vector\[Lambda]", "[", 
+              RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+            "\t\t", 
+            RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "8"}]}], "|>"}]}], ";", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"Quiet", "[", 
+          RowBox[{"Check", "[", 
+           RowBox[{
+            RowBox[{"plot", "[", "params", "]"}], ",", 
+            RowBox[{
+             RowBox[{"graficos1", "[", 
+              RowBox[{"[", 
+               RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
+             RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}]}]}], "]"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Export", "[", 
    RowBox[{
    "\"\</Users/enekoaranguren/Documents/lqg/color_spectrum/8/1.png\>\"", ",", 
     
-    RowBox[{"ArrayPlot", "[", "graficos1", "]"}], ",", 
+    RowBox[{"ArrayPlot", "[", 
+     RowBox[{"graficos1", ",", 
+      RowBox[{"FrameLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Rotate", "[", 
+          RowBox[{
+           RowBox[{"MaTeX", "[", 
+            RowBox[{"\"\<|\\\\lambda|\>\"", ",", " ", 
+             RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}], ",", 
+           RowBox[{"270", " ", "Degree"}]}], "]"}], ",", 
+         RowBox[{"MaTeX", "[", 
+          RowBox[{"\"\<|\\\\gamma|\>\"", ",", " ", 
+           RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}]}], 
+        "}"}]}], ",", 
+      RowBox[{"DataReversed", "\[Rule]", " ", "True"}]}], "]"}], ",", 
     RowBox[{"ImageResolution", "\[Rule]", " ", "300"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{
   3.8501415597500668`*^9, 3.8501416813269253`*^9, 3.850142171696624*^9, {
-   3.850142465105074*^9, 
-   3.850142465204783*^9}},ExpressionUUID->"179b1e21-cf6e-4286-894b-\
+   3.850142465105074*^9, 3.850142465204783*^9}, {3.850208041028338*^9, 
+   3.850208041196743*^9}, 
+   3.850208082249404*^9},ExpressionUUID->"179b1e21-cf6e-4286-894b-\
 af49998a5d66"],
 
 Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"2", ")"}], "Subsubsection"], ";"}]], "Input",
+ StyleBox[
+  RowBox[{"2", ";"}], "Subsubsection"]], "Input",
  CellChangeTimes->{{3.8501418524007998`*^9, 3.8501418533584433`*^9}, 
-   3.8501421760755777`*^9, 
-   3.8501438954050493`*^9},ExpressionUUID->"476dc792-0fc5-4066-9bd2-\
+   3.8501421760755777`*^9, 3.8501438954050493`*^9, {3.850204531356058*^9, 
+   3.850204531971498*^9}},ExpressionUUID->"476dc792-0fc5-4066-9bd2-\
 0ed4659a2ccb"],
 
 Cell[BoxData[{
@@ -4897,61 +5190,80 @@ Cell[BoxData[{
      RowBox[{"k", "\[LessEqual]", " ", 
       RowBox[{"Length", "[", "vector\[Lambda]", "]"}]}], ",", 
      RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
-     RowBox[{"For", "[", 
-      RowBox[{
-       RowBox[{"l", "=", "1"}], ",", " ", 
-       RowBox[{"l", "\[LessEqual]", " ", 
-        RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
-       RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Print", "[", "k", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
        RowBox[{
-        RowBox[{"params", "=", 
-         RowBox[{"<|", 
-          RowBox[{
-           RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
-            RowBox[{"-", "1000"}]}], ",", " ", 
-           RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "1000"}], ",", 
-           "\[IndentingNewLine]", "\t\t", 
-           RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
-            RowBox[{"vector\[Gamma]", "[", 
-             RowBox[{"[", "l", "]"}], "]"}]}], ",", 
-           RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
-            RowBox[{"vector\[Lambda]", "[", 
-             RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
-           "\t\t", 
-           RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "8"}]}], "|>"}]}], ";", 
-        "\[IndentingNewLine]", "\[IndentingNewLine]", 
-        RowBox[{"Quiet", "[", 
-         RowBox[{"Check", "[", 
-          RowBox[{
-           RowBox[{"plot", "[", "params", "]"}], ",", 
+        RowBox[{"l", "=", "1"}], ",", " ", 
+        RowBox[{"l", "\[LessEqual]", " ", 
+         RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
+        RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"params", "=", 
+          RowBox[{"<|", 
            RowBox[{
-            RowBox[{"graficos1", "[", 
-             RowBox[{"[", 
-              RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
-            RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
-      "\[IndentingNewLine]", "]"}]}], "]"}], ";"}], 
+            RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
+             RowBox[{"-", "1000"}]}], ",", " ", 
+            RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "1000"}], ",", 
+            "\[IndentingNewLine]", "\t\t", 
+            RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
+             RowBox[{"vector\[Gamma]", "[", 
+              RowBox[{"[", "l", "]"}], "]"}]}], ",", 
+            RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
+             RowBox[{"vector\[Lambda]", "[", 
+              RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+            "\t\t", 
+            RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "8"}]}], "|>"}]}], ";", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"Quiet", "[", 
+          RowBox[{"Check", "[", 
+           RowBox[{
+            RowBox[{"plot", "[", "params", "]"}], ",", 
+            RowBox[{
+             RowBox[{"graficos1", "[", 
+              RowBox[{"[", 
+               RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
+             RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}]}]}], "]"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Export", "[", 
    RowBox[{
    "\"\</Users/enekoaranguren/Documents/lqg/color_spectrum/8/2.png\>\"", ",", 
     
-    RowBox[{"ArrayPlot", "[", "graficos1", "]"}], ",", 
+    RowBox[{"ArrayPlot", "[", 
+     RowBox[{"graficos1", ",", 
+      RowBox[{"FrameLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Rotate", "[", 
+          RowBox[{
+           RowBox[{"MaTeX", "[", 
+            RowBox[{"\"\<|\\\\lambda|\>\"", ",", " ", 
+             RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}], ",", 
+           RowBox[{"270", " ", "Degree"}]}], "]"}], ",", 
+         RowBox[{"MaTeX", "[", 
+          RowBox[{"\"\<|\\\\gamma|\>\"", ",", " ", 
+           RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}]}], 
+        "}"}]}], ",", 
+      RowBox[{"DataReversed", "\[Rule]", " ", "True"}]}], "]"}], ",", 
     RowBox[{"ImageResolution", "\[Rule]", " ", "300"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{
   3.850141561790608*^9, 3.850141683870071*^9, {3.8501421788426*^9, 
    3.850142196237152*^9}, {3.850142467131159*^9, 3.850142467186532*^9}, {
-   3.850142505687356*^9, 
-   3.850142511285027*^9}},ExpressionUUID->"be9e0950-71fd-48cb-8a8f-\
+   3.850142505687356*^9, 3.850142511285027*^9}, {3.850208042852151*^9, 
+   3.850208042940135*^9}, 
+   3.850208084692589*^9},ExpressionUUID->"be9e0950-71fd-48cb-8a8f-\
 288cd3a9246a"],
 
 Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"3", ")"}], "Subsubsection"], ";"}]], "Input",
+ StyleBox[
+  RowBox[{"3", ";"}], "Subsubsection"]], "Input",
  CellChangeTimes->{{3.8501418561753283`*^9, 3.8501418564312687`*^9}, 
-   3.8501438966915627`*^9},ExpressionUUID->"e53f87d3-1479-4f0f-a741-\
+   3.8501438966915627`*^9, {3.85020454319265*^9, 
+   3.850204548996235*^9}},ExpressionUUID->"e53f87d3-1479-4f0f-a741-\
 c1908ddb515e"],
 
 Cell[BoxData[{
@@ -4974,52 +5286,71 @@ Cell[BoxData[{
      RowBox[{"k", "\[LessEqual]", " ", 
       RowBox[{"Length", "[", "vector\[Lambda]", "]"}]}], ",", 
      RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
-     RowBox[{"For", "[", 
-      RowBox[{
-       RowBox[{"l", "=", "1"}], ",", " ", 
-       RowBox[{"l", "\[LessEqual]", " ", 
-        RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
-       RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Print", "[", "k", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
        RowBox[{
-        RowBox[{"params", "=", 
-         RowBox[{"<|", 
-          RowBox[{
-           RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
-            RowBox[{"-", "10"}]}], ",", " ", 
-           RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "10"}], ",", 
-           "\[IndentingNewLine]", "\t\t", 
-           RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
-            RowBox[{"vector\[Gamma]", "[", 
-             RowBox[{"[", "l", "]"}], "]"}]}], ",", 
-           RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
-            RowBox[{"vector\[Lambda]", "[", 
-             RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
-           "\t\t", 
-           RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "8"}]}], "|>"}]}], ";", 
-        "\[IndentingNewLine]", "\[IndentingNewLine]", 
-        RowBox[{"Quiet", "[", 
-         RowBox[{"Check", "[", 
-          RowBox[{
-           RowBox[{"plot", "[", "params", "]"}], ",", 
+        RowBox[{"l", "=", "1"}], ",", " ", 
+        RowBox[{"l", "\[LessEqual]", " ", 
+         RowBox[{"Length", "[", "vector\[Gamma]", "]"}]}], ",", " ", 
+        RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"params", "=", 
+          RowBox[{"<|", 
            RowBox[{
-            RowBox[{"graficos1", "[", 
-             RowBox[{"[", 
-              RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
-            RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
-      "\[IndentingNewLine]", "]"}]}], "]"}], ";"}], 
+            RowBox[{"\"\<tmin\>\"", "\[Rule]", " ", 
+             RowBox[{"-", "10"}]}], ",", " ", 
+            RowBox[{"\"\<tmax\>\"", "\[Rule]", " ", "10"}], ",", 
+            "\[IndentingNewLine]", "\t\t", 
+            RowBox[{"\"\<\[Gamma]\>\"", "\[Rule]", "  ", 
+             RowBox[{"vector\[Gamma]", "[", 
+              RowBox[{"[", "l", "]"}], "]"}]}], ",", 
+            RowBox[{"\"\<\[Lambda]\>\"", "\[Rule]", " ", 
+             RowBox[{"vector\[Lambda]", "[", 
+              RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+            "\t\t", 
+            RowBox[{"\"\<edges\>\"", "\[Rule]", " ", "8"}]}], "|>"}]}], ";", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"Quiet", "[", 
+          RowBox[{"Check", "[", 
+           RowBox[{
+            RowBox[{"plot", "[", "params", "]"}], ",", 
+            RowBox[{
+             RowBox[{"graficos1", "[", 
+              RowBox[{"[", 
+               RowBox[{"k", ",", "l"}], "]"}], "]"}], "=", 
+             RowBox[{"Darker", "[", "Red", "]"}]}]}], "]"}], "]"}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}]}]}], "]"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Export", "[", 
    RowBox[{
    "\"\</Users/enekoaranguren/Documents/lqg/color_spectrum/8/3.png\>\"", ",", 
     
-    RowBox[{"ArrayPlot", "[", "graficos1", "]"}], ",", 
+    RowBox[{"ArrayPlot", "[", 
+     RowBox[{"graficos1", ",", 
+      RowBox[{"FrameLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Rotate", "[", 
+          RowBox[{
+           RowBox[{"MaTeX", "[", 
+            RowBox[{"\"\<|\\\\lambda|\>\"", ",", " ", 
+             RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}], ",", 
+           RowBox[{"270", " ", "Degree"}]}], "]"}], ",", 
+         RowBox[{"MaTeX", "[", 
+          RowBox[{"\"\<|\\\\gamma|\>\"", ",", " ", 
+           RowBox[{"Magnification", "\[Rule]", " ", "1.5"}]}], "]"}]}], 
+        "}"}]}], ",", 
+      RowBox[{"DataReversed", "\[Rule]", " ", "True"}]}], "]"}], ",", 
     RowBox[{"ImageResolution", "\[Rule]", " ", "300"}]}], "]"}], 
   ";"}]}], "Input",
  CellChangeTimes->{
   3.850141563030854*^9, {3.850141685540638*^9, 3.850141690132978*^9}, {
    3.850142205124358*^9, 3.85014222282355*^9}, {3.850142472290942*^9, 
-   3.850142503476284*^9}},ExpressionUUID->"c070755b-a98f-4335-89ec-\
+   3.850142503476284*^9}, {3.850208044699048*^9, 3.850208044834619*^9}, 
+   3.850208087721829*^9},ExpressionUUID->"c070755b-a98f-4335-89ec-\
 f0adf355fddb"]
 }, Open  ]]
 }, Open  ]]
@@ -5041,7 +5372,7 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[422, 15, 165988, 2766, 543, "Title",ExpressionUUID->"2485306f-4446-4f21-9896-4ebe59e76bdb"],
+Cell[422, 15, 165988, 2766, 485, "Title",ExpressionUUID->"2485306f-4446-4f21-9896-4ebe59e76bdb"],
 Cell[166413, 2783, 432, 9, 52, "Input",ExpressionUUID->"1e97c7c2-c578-411f-8aad-aee97874277d"],
 Cell[CellGroupData[{
 Cell[166870, 2796, 247, 4, 67, "Section",ExpressionUUID->"3f590065-6b66-466a-a684-0ae121478be9"],
@@ -5057,32 +5388,45 @@ Cell[231284, 4189, 4902, 82, 220, "Input",ExpressionUUID->"3151c7c7-c900-46cf-8f
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[236223, 4276, 163, 3, 67, "Section",ExpressionUUID->"58393e4c-5d05-4d0a-847b-e50d611d9d10"],
-Cell[236389, 4281, 497, 13, 52, "Input",ExpressionUUID->"c63d75a0-af00-46aa-85c8-f0501079f0c0"],
-Cell[236889, 4296, 288, 7, 55, "Input",ExpressionUUID->"64a9aba7-0d73-4718-930f-183c79749197"],
-Cell[237180, 4305, 272, 7, 37, "Input",ExpressionUUID->"74587261-52d0-40af-aa1a-494613612af5"],
+Cell[236389, 4281, 695, 14, 52, "Input",ExpressionUUID->"c63d75a0-af00-46aa-85c8-f0501079f0c0"],
 Cell[CellGroupData[{
-Cell[237477, 4316, 2733, 65, 304, "Input",ExpressionUUID->"af05b2b5-589d-4098-992b-08675ee94ad7"],
-Cell[240213, 4383, 158, 2, 34, "Output",ExpressionUUID->"a0f61bbd-bd61-4be8-98cc-0304dfda2e42"],
-Cell[240374, 4387, 156, 2, 34, "Output",ExpressionUUID->"1321b527-b4d3-43f9-af7b-a2b4a650beea"]
+Cell[237109, 4299, 3819, 86, 346, "Input",ExpressionUUID->"a24b9c24-f960-4b7f-b781-fbea66471f85"],
+Cell[CellGroupData[{
+Cell[240953, 4389, 245, 5, 24, "Print",ExpressionUUID->"86f61ba4-5cf9-4c4a-9e3d-087eaa7421a3"],
+Cell[241201, 4396, 245, 5, 24, "Print",ExpressionUUID->"fb0f6e81-7168-41c7-a382-918161fc9b33"],
+Cell[241449, 4403, 245, 5, 24, "Print",ExpressionUUID->"ae8ffa13-d848-4576-a0fa-a8848bc19f18"],
+Cell[241697, 4410, 245, 5, 24, "Print",ExpressionUUID->"381a88ae-6c50-4e83-aafc-4d799082a3a2"],
+Cell[241945, 4417, 247, 5, 24, "Print",ExpressionUUID->"48d80e92-1558-4e7a-9334-0d5d8bd36ac4"],
+Cell[242195, 4424, 247, 5, 24, "Print",ExpressionUUID->"52c04e29-f18c-4933-93ec-25dc5585ec81"],
+Cell[242445, 4431, 245, 5, 24, "Print",ExpressionUUID->"9e06e717-adc7-4fa1-8b30-9f4f0e353e79"],
+Cell[242693, 4438, 244, 5, 24, "Print",ExpressionUUID->"f142eeb8-4fb8-433a-862d-bb348cc55896"],
+Cell[242940, 4445, 247, 5, 24, "Print",ExpressionUUID->"6b4b2fd8-cede-48a8-b841-7af2a350641a"],
+Cell[243190, 4452, 248, 5, 24, "Print",ExpressionUUID->"8545651a-94f1-485a-b4fa-b8d246fcb864"],
+Cell[243441, 4459, 248, 5, 24, "Print",ExpressionUUID->"b58a22e6-26b9-4760-a9de-9051096bc8fe"]
+}, Open  ]]
 }, Open  ]],
-Cell[240545, 4392, 244, 6, 37, "Input",ExpressionUUID->"512b33eb-a49e-47f4-8980-6a0152367a57"],
-Cell[240792, 4400, 2815, 68, 283, "Input",ExpressionUUID->"25da0343-d50d-408e-80dc-fc97ef83dbaa"],
-Cell[243610, 4470, 239, 6, 37, "Input",ExpressionUUID->"ddcc5084-98a6-479b-bc83-e3fd8786e2fd"],
-Cell[243852, 4478, 2683, 65, 283, "Input",ExpressionUUID->"418d8171-53ed-4e33-8bea-3eb90402392a"],
-Cell[246538, 4545, 288, 7, 55, "Input",ExpressionUUID->"6b178331-8c62-40e7-bc88-04ffdccdd9a8"],
-Cell[246829, 4554, 269, 7, 37, "Input",ExpressionUUID->"9cf115c4-0a1c-4842-897b-ecdda092b70f"],
-Cell[247101, 4563, 2667, 65, 304, "Input",ExpressionUUID->"a62c3bc2-e25f-45d0-8ddf-b7bc06200852"],
-Cell[249771, 4630, 272, 7, 32, "Input",ExpressionUUID->"f26513ca-f480-489b-9d90-15b97bb4009a"],
-Cell[250046, 4639, 2716, 66, 283, "Input",ExpressionUUID->"d1c716b7-6a00-452d-b86f-52a6a29eb0e1"],
-Cell[252765, 4707, 270, 7, 32, "Input",ExpressionUUID->"dc14c89c-6c49-454f-8cbc-dca3d55d3885"],
-Cell[253038, 4716, 2716, 66, 283, "Input",ExpressionUUID->"fd46ad3b-90fc-48aa-af72-f9986a54b147"],
-Cell[255757, 4784, 286, 7, 55, "Input",ExpressionUUID->"ed105b2d-816a-4bd1-b205-940ccfd18d40"],
-Cell[256046, 4793, 268, 7, 31, "Input",ExpressionUUID->"bc48b523-5c43-490f-9bd3-096d87a0d5c4"],
-Cell[256317, 4802, 2693, 66, 304, "Input",ExpressionUUID->"179b1e21-cf6e-4286-894b-af49998a5d66"],
-Cell[259013, 4870, 276, 7, 37, "Input",ExpressionUUID->"476dc792-0fc5-4066-9bd2-0ed4659a2ccb"],
-Cell[259292, 4879, 2759, 67, 304, "Input",ExpressionUUID->"be9e0950-71fd-48cb-8a8f-288cd3a9246a"],
-Cell[262054, 4948, 248, 6, 32, "Input",ExpressionUUID->"e53f87d3-1479-4f0f-a741-c1908ddb515e"],
-Cell[262305, 4956, 2707, 66, 283, "Input",ExpressionUUID->"c070755b-a98f-4335-89ec-f0adf355fddb"]
+Cell[243716, 4468, 210, 3, 52, "Input",ExpressionUUID->"8cf9aaac-f0b1-493e-8923-ffa9b6b98d67"],
+Cell[243929, 4473, 278, 7, 39, "Input",ExpressionUUID->"64a9aba7-0d73-4718-930f-183c79749197"],
+Cell[244210, 4482, 265, 5, 37, "Input",ExpressionUUID->"74587261-52d0-40af-aa1a-494613612af5"],
+Cell[244478, 4489, 3596, 85, 346, "Input",ExpressionUUID->"af05b2b5-589d-4098-992b-08675ee94ad7"],
+Cell[248077, 4576, 253, 6, 37, "Input",ExpressionUUID->"512b33eb-a49e-47f4-8980-6a0152367a57"],
+Cell[248333, 4584, 3653, 87, 325, "Input",ExpressionUUID->"25da0343-d50d-408e-80dc-fc97ef83dbaa"],
+Cell[251989, 4673, 246, 6, 37, "Input",ExpressionUUID->"ddcc5084-98a6-479b-bc83-e3fd8786e2fd"],
+Cell[252238, 4681, 3497, 84, 325, "Input",ExpressionUUID->"418d8171-53ed-4e33-8bea-3eb90402392a"],
+Cell[255738, 4767, 276, 7, 39, "Input",ExpressionUUID->"6b178331-8c62-40e7-bc88-04ffdccdd9a8"],
+Cell[256017, 4776, 272, 6, 37, "Input",ExpressionUUID->"9cf115c4-0a1c-4842-897b-ecdda092b70f"],
+Cell[256292, 4784, 3479, 84, 346, "Input",ExpressionUUID->"a62c3bc2-e25f-45d0-8ddf-b7bc06200852"],
+Cell[259774, 4870, 299, 6, 37, "Input",ExpressionUUID->"f26513ca-f480-489b-9d90-15b97bb4009a"],
+Cell[260076, 4878, 3530, 85, 325, "Input",ExpressionUUID->"d1c716b7-6a00-452d-b86f-52a6a29eb0e1"],
+Cell[263609, 4965, 297, 6, 37, "Input",ExpressionUUID->"dc14c89c-6c49-454f-8cbc-dca3d55d3885"],
+Cell[263909, 4973, 3532, 85, 325, "Input",ExpressionUUID->"fd46ad3b-90fc-48aa-af72-f9986a54b147"],
+Cell[267444, 5060, 274, 7, 39, "Input",ExpressionUUID->"ed105b2d-816a-4bd1-b205-940ccfd18d40"],
+Cell[267721, 5069, 295, 6, 37, "Input",ExpressionUUID->"bc48b523-5c43-490f-9bd3-096d87a0d5c4"],
+Cell[268019, 5077, 3505, 85, 346, "Input",ExpressionUUID->"179b1e21-cf6e-4286-894b-af49998a5d66"],
+Cell[271527, 5164, 303, 6, 37, "Input",ExpressionUUID->"476dc792-0fc5-4066-9bd2-0ed4659a2ccb"],
+Cell[271833, 5172, 3571, 86, 346, "Input",ExpressionUUID->"be9e0950-71fd-48cb-8a8f-288cd3a9246a"],
+Cell[275407, 5260, 278, 6, 37, "Input",ExpressionUUID->"e53f87d3-1479-4f0f-a741-c1908ddb515e"],
+Cell[275688, 5268, 3519, 85, 325, "Input",ExpressionUUID->"c070755b-a98f-4335-89ec-f0adf355fddb"]
 }, Open  ]]
 }, Open  ]]
 }
