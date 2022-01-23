@@ -1,0 +1,8 @@
+The title of my Master's thesis is: 'Dynamics for 2-vertex models in Loop Quantum Gravity'.
+
+Loop Quantum Gravity is a non-perturbative theory that attempts to provide a quantum description of the gravitational interaction. In this project, we worked within the spinorial formalism of LQG, a classical framework which considers a graph endowed with some spinors living at the edges (every vertex of the graph is dual to a polyhedron).
+
+Even if the dynamics of LQG has not been successfully implemented yet, we can study the evolution of truncated models by considering a suitable Hamiltonian which respects the symmetries of the theory. To do so, we calculated the evolution of different tetrahedrons which, in the quantum theory, would describe the fundamental 'atoms of space' (the discretization of space is one of the most important achievements of LQG).
+Surprisingly, even if our models remained out of the homogeneous and isotropic sector (which was already studied in the literature), we obtained similar trends for the evolution of the tetrahedrons.
+
+Consequently, Etera Livine, Iñaki Garay and I are planning to write an article based on my Master's thesis. In our article, we will study more general models (also out of the homogeneous and isotropic sector) and try to comprehend their evolution and geometrical properties (area quadrupole, volume, etc.), which could shed light on the behavior of space.
